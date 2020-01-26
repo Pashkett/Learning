@@ -7,7 +7,9 @@ namespace PolynomialsTask
         static void Main(string[] args)
         {
             Polynomial<Monomial> polynomial =
-                new Polynomial<Monomial>(new Monomial(1, 3), new Monomial(4, 5), new Monomial(1, 1));
+                new Polynomial<Monomial>(new Monomial(1, 3),
+                                         new Monomial(4, 5),
+                                         new Monomial(1, 1));
             foreach (var item in polynomial)
             {
                 Console.Write($"{item.ToString()} ");
