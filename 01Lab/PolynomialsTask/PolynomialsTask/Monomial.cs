@@ -46,8 +46,13 @@ namespace PolynomialsTask
         }
 
         // Overridden methods 
-        public override string ToString() => 
-            $"{Coefficient.ToString()}*x^{Power.ToString()}";
+        public override string ToString()
+        {
+            if (Coefficient < 0)
+                return $"{Coefficient.ToString()}*x^{Power.ToString()}";
+            else
+                return $" + {Coefficient.ToString()}*x^{Power.ToString()}";
+        }
 
         //IComparable implementation
         public int CompareTo([AllowNull] Monomial other)

@@ -12,7 +12,7 @@ namespace PolynomialsTask
                                          new Monomial(1, 1));
             foreach (var item in polynomial)
             {
-                Console.Write($"{item.ToString()} ");
+                Console.Write($"{item.ToString()}");
             }
         }
     }
