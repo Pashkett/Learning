@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
 namespace PolynomialsTask
 {
-    class Monomial : IComparable<Monomial>
+    class Monomial : IComparable<Monomial>, ICloneable
     {
         // Baked fields for properties
         private int coefficient;
@@ -61,6 +62,16 @@ namespace PolynomialsTask
                 return 1;
             else
                 return ((int)(this.Power)).CompareTo(((int)(other.Power)));
+        }
+
+        //IClonable implementation
+        public object Clone()
+        {
+            if (this == null)
+            {
+                throw new ArgumentNullException("Monomial should be null");
+            }
+            return new Monomial(this.Coefficient, this.Power);
         }
     }
 }
