@@ -10,7 +10,13 @@ namespace PolynomialsTask
         {
             Elements = new List<Monomial>();
             Elements.AddRange(monomials);
+            SetToStandartForm();
+        }
+
+        private void SetToStandartForm()
+        {
             Elements.Sort();
+            Elements.Reverse();
         }
 
         public IEnumerator GetEnumerator()
