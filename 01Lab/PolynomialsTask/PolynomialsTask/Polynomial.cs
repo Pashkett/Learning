@@ -71,7 +71,7 @@ namespace PolynomialsTask
         public static Polynomial operator -(Polynomial polynomial)
         {
             if (polynomial == null)
-                throw new ArgumentNullException("Polinomial should not be null");
+                throw new ArgumentNullException("Polynomial should not be null");
 
             Polynomial result = new Polynomial(polynomial.Elements.ToArray());
             result.Elements.ForEach(m => m.Coefficient = -(m.Coefficient));
@@ -82,7 +82,7 @@ namespace PolynomialsTask
         public static Polynomial operator +(Polynomial polynomial)
         {
             if (polynomial == null)
-                throw new ArgumentNullException("Polinomial should not be null");
+                throw new ArgumentNullException("Polynomial should not be null");
 
             return polynomial;
         }
@@ -90,7 +90,7 @@ namespace PolynomialsTask
         public static Polynomial operator -(Polynomial polynomial1, Polynomial polynomial2)
         {
             if (polynomial1 == null || polynomial2 == null)
-                throw new ArgumentNullException("Polinomial should not be null");
+                throw new ArgumentNullException("Polynomial should not be null");
             polynomial2 = -polynomial2;
             Polynomial result = polynomial1 + polynomial2;
 
@@ -100,7 +100,7 @@ namespace PolynomialsTask
         public static Polynomial operator +(Polynomial polynomial1, Polynomial polynomial2)
         {
             if (polynomial1 == null || polynomial2 == null)
-                throw new ArgumentNullException("Polinomial should not be null");
+                throw new ArgumentNullException("Polynomial should not be null");
 
             Polynomial result = new Polynomial();
             result.Elements.AddRange(polynomial1.Elements.ToArray());
@@ -113,7 +113,7 @@ namespace PolynomialsTask
         public static Polynomial operator *(Polynomial polynomial1, Polynomial polynomial2)
         {
             if (polynomial1 == null || polynomial2 == null)
-                throw new ArgumentNullException("Polinomial should not be null");
+                throw new ArgumentNullException("Polynomial should not be null");
 
             Polynomial result = new Polynomial();
 
