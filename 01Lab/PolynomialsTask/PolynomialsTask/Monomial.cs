@@ -36,9 +36,7 @@ namespace PolynomialsTask
                 return $" + {Coefficient.ToString()}*x^{Power.ToString()}";
         }
 
-        public int CompareTo(Monomial other)
-        {
-            return ((int)(this.Power)).CompareTo(((int)(other.Power)));
-        }
+        public int CompareTo(Monomial other) => 
+            (this.Power).CompareTo((int)(other.Power));
     }
 }
