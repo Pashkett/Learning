@@ -36,8 +36,20 @@ namespace MatrixTask.MatrixImplementation
         #region Indexer implementation
         public T this[int i, int j]
         {
-            get => MatrixBody[i, j];
-            set => MatrixBody[i, j] = value;
+            get
+            {
+                if (i < 0 || j < 0)
+                    throw new InvalidMatrixIndexException("Matrix index should not be negative");
+                else
+                    return MatrixBody[i, j];
+            }
+            set
+            {
+                if (i < 0 || j < 0)
+                    throw new InvalidMatrixIndexException("Matrix index should not be negative");
+                else
+                    MatrixBody[i, j] = value;
+            }
         }
 
         #endregion
