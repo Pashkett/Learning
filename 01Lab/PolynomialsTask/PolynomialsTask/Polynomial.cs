@@ -91,6 +91,7 @@ namespace PolynomialsTask
         {
             if (polynomial1 == null || polynomial2 == null)
                 throw new ArgumentNullException("Polynomial should not be null");
+
             polynomial2 = -polynomial2;
             Polynomial result = polynomial1 + polynomial2;
 
