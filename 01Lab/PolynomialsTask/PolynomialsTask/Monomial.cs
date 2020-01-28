@@ -1,52 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 namespace PolynomialsTask
 {
-    class Monomial : IComparable<Monomial>, ICloneable
+    struct Monomial : IComparable<Monomial>
     {
-        // Baked fields for properties
         private int coefficient;
         private int power;
 
-        // Properties
-        public int? Coefficient
+        public int Coefficient
         {
             get => coefficient;
-            set
-            {
-                if (value == 0)
-                    throw new ArgumentException("Coefficient should be grater than or less than zero");
-                if (value == null)
-                    coefficient = 1;
-                else
-                    coefficient = (int)value;
-            }
+            set => coefficient = value;
         }
-        public int? Power 
+        public int Power
         {
             get => power;
-            set
-            {
-                if (value == null)
-                    power = 0;
-                if (value < 0)
-                    throw new ArgumentException("Power should be greater than or equal to zero");
-                else
-                    power = (int)value;
-            }
-            
+            set => power = value;
         }
 
-        // Constructor
-        public Monomial(int? coefficient, int? power)
+        public Monomial(int coeff, int pow)
         {
-            Coefficient = coefficient;
-            Power = power;
+            coefficient = coeff == 0
+                          ? throw new Exception() //TODO
+                          : coeff;
+            power = pow < 0
+                    ? throw new Exception() //TODO
+                    : pow;
         }
 
-        // Overridden methods 
         public override string ToString()
         {
             if (Coefficient < 0)
@@ -55,23 +36,9 @@ namespace PolynomialsTask
                 return $" + {Coefficient.ToString()}*x^{Power.ToString()}";
         }
 
-        //IComparable implementation
-        public int CompareTo([AllowNull] Monomial other)
+        public int CompareTo(Monomial other)
         {
-            if (other == null)
-                return 1;
-            else
-                return ((int)(this.Power)).CompareTo(((int)(other.Power)));
-        }
-
-        //IClonable implementation
-        public object Clone()
-        {
-            if (this == null)
-            {
-                throw new ArgumentNullException("Monomial should be null");
-            }
-            return new Monomial(this.Coefficient, this.Power);
+            return ((int)(this.Power)).CompareTo(((int)(other.Power)));
         }
     }
 }
