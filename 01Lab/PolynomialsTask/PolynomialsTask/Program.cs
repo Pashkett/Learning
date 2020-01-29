@@ -6,16 +6,18 @@ namespace PolynomialsTask
     {
         static void Main(string[] args)
         {
-            Polynomial polynomial1 = new Polynomial(new Monomial(1, 3),
+            Polynomial polynomial1 = new Polynomial(
+                                new Monomial(1, 3),
                                 new Monomial(4, 3),
                                 new Monomial(1, 1),
                                 new Monomial(1, 4));
             Console.WriteLine(polynomial1.ToString());
 
-            Polynomial polynomial2 = new Polynomial(new Monomial(1, 3),
+            Polynomial polynomial2 = new Polynomial(
+                                new Monomial(1, 3),
                                 new Monomial(4, 3),
                                 new Monomial(1, 1),
-                                new Monomial(1, 4));
+                                new Monomial(1, 3));
             Console.WriteLine(polynomial2.ToString());
 
             try
