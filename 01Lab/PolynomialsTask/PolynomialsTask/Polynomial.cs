@@ -24,8 +24,8 @@ namespace PolynomialsTask
         private void SetToStandartForm()
         {
             Elements = new List<Monomial>(from e in Elements 
-                                           orderby e.Power descending 
-                                           select e);
+                                           orderby e.Power descending
+                                          select e);
             AddPolynomialElements();
         }
 
