@@ -7,7 +7,7 @@ namespace PolynomialsTask
         public static Polynomial operator -(Polynomial polynomial)
         {
             if (polynomial == null)
-                throw new ArgumentNullException("Polynomial should not be null");
+                throw new ArgumentNullException("Polynomial should not be null.");
 
             Polynomial result = new Polynomial();
             foreach (var mo in polynomial.Elements)
@@ -16,19 +16,13 @@ namespace PolynomialsTask
             }
             result.SetToStandartForm();
             
-            if (result.Elements.Count == 0)
-            {
-                Console.WriteLine("There are no elements in your polynomial.");
-                return result;
-            }
-            else
-                return result;
+            return result;
         }
 
         public static Polynomial operator +(Polynomial polynomial)
         {
             if (polynomial == null)
-                throw new ArgumentNullException("Polynomial should not be null");
+                throw new ArgumentNullException("Polynomial should not be null.");
 
             return polynomial;
         }
@@ -36,18 +30,21 @@ namespace PolynomialsTask
         public static Polynomial operator -(Polynomial polynomial1, Polynomial polynomial2)
         {
             if (polynomial1 == null || polynomial2 == null)
-                throw new ArgumentNullException("Polynomial should not be null");
+                throw new ArgumentNullException("Polynomial should not be null.");
 
             polynomial2 = -polynomial2;
             Polynomial result = polynomial1 + polynomial2;
 
-            return result;
+            if (result.Elements.Count == 0)
+                throw new MatrixIsEmptyException("Polynomial is empty after subtraction!");
+            else
+                return result;
         }
 
         public static Polynomial operator +(Polynomial polynomial1, Polynomial polynomial2)
         {
             if (polynomial1 == null || polynomial2 == null)
-                throw new ArgumentNullException("Polynomial should not be null");
+                throw new ArgumentNullException("Polynomial should not be null.");
 
             Polynomial result = new Polynomial();
             result.Elements.AddRange(polynomial1.Elements.ToArray());
@@ -60,7 +57,7 @@ namespace PolynomialsTask
         public static Polynomial operator *(Polynomial polynomial1, Polynomial polynomial2)
         {
             if (polynomial1 == null || polynomial2 == null)
-                throw new ArgumentNullException("Polynomial should not be null");
+                throw new ArgumentNullException("Polynomial should not be null.");
 
             Polynomial result = new Polynomial();
 

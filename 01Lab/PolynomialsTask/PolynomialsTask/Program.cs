@@ -18,9 +18,15 @@ namespace PolynomialsTask
                                 new Monomial(1, 4));
             Console.WriteLine(polynomial2.ToString());
 
-
-            Polynomial polynomial4 = polynomial1 - polynomial2;
-            Console.WriteLine(polynomial4.ToString());
+            try
+            {
+                Polynomial polynomial4 = polynomial1 - polynomial2;
+                Console.WriteLine(polynomial4.ToString());
+            }
+            catch (MatrixIsEmptyException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
