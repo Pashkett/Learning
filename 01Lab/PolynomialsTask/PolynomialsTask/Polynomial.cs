@@ -65,7 +65,18 @@ namespace PolynomialsTask
 
         public Monomial this[int i]
         {
-            get => Elements[i];
+            get
+            {
+                try
+                {
+                    return Elements[i];
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
         }
 
         public static Polynomial operator -(Polynomial polynomial)
