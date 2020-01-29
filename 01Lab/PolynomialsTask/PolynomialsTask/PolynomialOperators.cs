@@ -15,8 +15,12 @@ namespace PolynomialsTask
                 result.Elements.Add(new Monomial(-mo.Coefficient, mo.Power));
             }
             result.SetToStandartForm();
+            
             if (result.Elements.Count == 0)
+            {
                 Console.WriteLine("There are no elements in your polynomial.");
+                return result;
+            }
             else
                 return result;
         }
