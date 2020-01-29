@@ -25,8 +25,9 @@ namespace PolynomialsTask
 
         private void SetToStandartForm()
         {
-            Elements.Sort();
-            Elements.Reverse();
+            Elements =  new List<Monomial>(from e in Elements 
+                                           orderby e.Power descending 
+                                           select e);
             AddPolynomialElements();
         }
 
