@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace PolynomialsTask
 {
@@ -54,13 +55,15 @@ namespace PolynomialsTask
             return new Polynomial(monomials);
         }
 
-        public void DisplayPolynomial()
+        public override string ToString()
         {
+            StringBuilder result = new StringBuilder();
             foreach (var mon in Elements)
             {
-                Console.Write(mon.ToString());
+                result.Append(mon.ToString());
             }
-            Console.WriteLine();
+
+            return result.ToString();
         }
 
         public Monomial this[int i]
@@ -71,9 +74,8 @@ namespace PolynomialsTask
                 {
                     return Elements[i];
                 }
-                catch (Exception ex)
+                catch (ArgumentOutOfRangeException ex)
                 {
-
                     throw ex;
                 }
             }

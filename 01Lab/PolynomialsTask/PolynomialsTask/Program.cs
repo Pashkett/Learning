@@ -10,17 +10,15 @@ namespace PolynomialsTask
                                 new Monomial(4, 3),
                                 new Monomial(1, 1),
                                 new Monomial(1, 4));
-
-            polynomial1.DisplayPolynomial();
+            Console.WriteLine(polynomial1.ToString());
 
             Polynomial polynomial2 = new Polynomial(new Monomial(1, 3),
                                 new Monomial(4, 3),
                                 new Monomial(1, 1));
-
-            polynomial2.DisplayPolynomial();
+            Console.WriteLine(polynomial2.ToString());
 
             Polynomial polynomial3 = polynomial1 * polynomial2;
-            polynomial3.DisplayPolynomial();
+            Console.WriteLine(polynomial3.ToString());
         }
     }
 }
