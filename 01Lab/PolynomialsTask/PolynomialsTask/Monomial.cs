@@ -2,7 +2,7 @@
 
 namespace PolynomialsTask
 {
-    struct Monomial : IComparable<Monomial>
+    struct Monomial : IComparable<Monomial>, ICloneable
     {
         private int coefficient;
         private int power;
@@ -21,10 +21,10 @@ namespace PolynomialsTask
         public Monomial(int coeff, int pow)
         {
             coefficient = coeff == 0
-                          ? throw new Exception() //TODO
+                          ? throw new InvalidCoefficientException("Coefficient should not be equal to 0.")
                           : coeff;
             power = pow < 0
-                    ? throw new Exception() //TODO
+                    ? throw new InvalidPowerException("Power should not be less than 0.")
                     : pow;
         }
 
@@ -38,5 +38,8 @@ namespace PolynomialsTask
 
         public int CompareTo(Monomial other) => 
             (this.Power).CompareTo((int)(other.Power));
+
+        public object Clone() => 
+            new Monomial(Power, Coefficient);
     }
 }

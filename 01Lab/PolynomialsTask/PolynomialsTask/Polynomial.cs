@@ -5,17 +5,15 @@ using System.Collections.Generic;
 
 namespace PolynomialsTask
 {
-    class Polynomial : IEnumerable, ICloneable
+    partial class Polynomial : IEnumerable, ICloneable
     {
         public List<Monomial> Elements { get; private set; }
         public int Degree { get; private set; }
 
-        public Polynomial()
-        {
+        public Polynomial() => 
             Elements = new List<Monomial>();
-        }
 
-        public Polynomial(params Monomial[] monomials)
+        public Polynomial(params Monomial[] monomials) : this()
         {
             Elements = new List<Monomial>();
             Elements.AddRange(monomials);
@@ -25,7 +23,7 @@ namespace PolynomialsTask
 
         private void SetToStandartForm()
         {
-            Elements =  new List<Monomial>(from e in Elements 
+            Elements = new List<Monomial>(from e in Elements 
                                            orderby e.Power descending 
                                            select e);
             AddPolynomialElements();
@@ -52,6 +50,7 @@ namespace PolynomialsTask
         {
             Monomial[] monomials = null;
             Elements.CopyTo(monomials);
+
             return new Polynomial(monomials);
         }
 
@@ -78,68 +77,6 @@ namespace PolynomialsTask
                     throw ex;
                 }
             }
-        }
-
-        public static Polynomial operator -(Polynomial polynomial)
-        {
-            if (polynomial == null)
-                throw new ArgumentNullException("Polynomial should not be null");
-
-            Polynomial result = new Polynomial(polynomial.Elements.ToArray());
-            result.Elements.ForEach(m => m.Coefficient = -(m.Coefficient));
-
-            return result;
-        }
-
-        public static Polynomial operator +(Polynomial polynomial)
-        {
-            if (polynomial == null)
-                throw new ArgumentNullException("Polynomial should not be null");
-
-            return polynomial;
-        }
-
-        public static Polynomial operator -(Polynomial polynomial1, Polynomial polynomial2)
-        {
-            if (polynomial1 == null || polynomial2 == null)
-                throw new ArgumentNullException("Polynomial should not be null");
-
-            polynomial2 = -polynomial2;
-            Polynomial result = polynomial1 + polynomial2;
-
-            return result;
-        }
-
-        public static Polynomial operator +(Polynomial polynomial1, Polynomial polynomial2)
-        {
-            if (polynomial1 == null || polynomial2 == null)
-                throw new ArgumentNullException("Polynomial should not be null");
-
-            Polynomial result = new Polynomial();
-            result.Elements.AddRange(polynomial1.Elements.ToArray());
-            result.Elements.AddRange(polynomial2.Elements.ToArray());
-            result.SetToStandartForm();
-
-            return result;
-        }
-
-        public static Polynomial operator *(Polynomial polynomial1, Polynomial polynomial2)
-        {
-            if (polynomial1 == null || polynomial2 == null)
-                throw new ArgumentNullException("Polynomial should not be null");
-
-            Polynomial result = new Polynomial();
-
-            foreach (var po1 in polynomial1.Elements)
-            {
-                foreach (var po2 in polynomial2.Elements)
-                {
-                    result.Elements.Add(new Monomial(po1.Coefficient * po2.Coefficient, po1.Power + po2.Power));
-                }
-            }
-            result.SetToStandartForm();
-
-            return result;
         }
     }
 }
