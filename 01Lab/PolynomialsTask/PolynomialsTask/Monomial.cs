@@ -20,9 +20,7 @@ namespace PolynomialsTask
 
         public Monomial(int coeff, int pow)
         {
-            coefficient = coeff == 0
-                          ? throw new InvalidCoefficientException("Coefficient should not be equal to 0.")
-                          : coeff;
+            coefficient = coeff;
             power = pow < 0
                     ? throw new InvalidPowerException("Power should not be less than 0.")
                     : pow;

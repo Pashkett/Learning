@@ -9,10 +9,16 @@ namespace PolynomialsTask
             if (polynomial == null)
                 throw new ArgumentNullException("Polynomial should not be null");
 
-            Polynomial result = new Polynomial(polynomial.Elements.ToArray());
-            result.Elements.ForEach(m => m.Coefficient = -(m.Coefficient));
-
-            return result;
+            Polynomial result = new Polynomial();
+            foreach (var mo in polynomial.Elements)
+            {
+                result.Elements.Add(new Monomial(-mo.Coefficient, mo.Power));
+            }
+            result.SetToStandartForm();
+            if (result.Elements.Count == 0)
+                Console.WriteLine("There are no elements in your polynomial.");
+            else
+                return result;
         }
 
         public static Polynomial operator +(Polynomial polynomial)
