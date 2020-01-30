@@ -5,7 +5,9 @@ using log4net;
 using log4net.Config;
 using log4net.Repository;
 
-
+/// <summary>
+/// Source is https://jakubwajs.wordpress.com/2019/11/28/logging-with-log4net-in-net-core-3-0-console-app/
+/// </summary>
 namespace LoggingLogForNet
 {
     class Program
