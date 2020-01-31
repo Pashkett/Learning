@@ -5,10 +5,14 @@ using System.Collections;
 
 namespace BinaryTreeTask
 {
-    public class BinaryTree<T> : IEnumerable<T>
+    public class BinaryTree<T> : IEnumerable
         where T: IComparable<T>
     {
         private Node<T> root;
+        public Node<T> Root 
+        { 
+            get => root;
+        }
         public BinaryTree() => root = null;
 
         public void Insert(T data)
@@ -54,14 +58,40 @@ namespace BinaryTreeTask
 
         public void DisplayTree() => DisplayTree(root);
 
-        public IEnumerator<T> GetEnumerator()
+       public IEnumerator GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new BinaryTreeEnumerator<T>(this);
+        }
+    }
+
+    public class BinaryTreeEnumerator<T> : IEnumerator
+        where T : IComparable<T>
+    {
+        private BinaryTree<T> binaryTree;
+        
+        private Node<T> currentNode;
+        
+        private bool leftReturned = false;
+
+        public object Current
+        {
+            get => currentNode;
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public BinaryTreeEnumerator(BinaryTree<T> tree) 
         {
-            throw new NotImplementedException();
+            if (binaryTree == null || binaryTree.Root == null)
+                    throw new ArgumentNullException("Binary tree or root element of Binary tree should not equals null");
+
+            binaryTree = tree;
+            currentNode = tree.Root;
         }
+
+        public bool MoveNext()
+        {
+            return true;
+        }
+
+        public void Reset() => currentNode = binaryTree.Root;
     }
 }
