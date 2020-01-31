@@ -9,6 +9,7 @@ namespace BinaryTreeTask
         public T Data { get; set; }
         public Node<T> NodeLeft { get; set; }
         public Node<T> NodeRight { get; set; }
+        
         public Node() { }
         public Node(T data) => Data = data;
 
