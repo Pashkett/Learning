@@ -20,33 +20,47 @@ namespace BinaryTreeTask
             get => count;
         }
 
-        public BinaryTree() => root = null;
+        public delegate void BinaryTreeHandler(string message);
+        public event BinaryTreeHandler TreeClearing; 
+        public event BinaryTreeHandler AddingElement;
+
+        public BinaryTree()
+        {
+            root = null;
+        }
 
         public void InsertNode(T data)
         {
             if (root == null)
+            {
+                AddingElement?.Invoke($"Root element {data.ToString()} was added.");
                 root = new Node<T>(data);
+            }
             else
                 InsertRec(root, new Node<T>(data));
         }
 
         private void InsertRec(Node<T> root, Node<T> newNode)
         {
-            //Checked in root method
-            //if (root == null)
-            //    root = newNode;
-
             if (newNode < root)
             {
                 if (root.NodeLeft == null)
+                {
                     root.NodeLeft = newNode;
+                    AddingElement?.Invoke($"New Left node {newNode.ToString()} element was added.");
+                }
                 else
+                {
                     InsertRec(root.NodeLeft, newNode);
+                }
             }
             else
             {
                 if (root.NodeRight == null)
+                {
                     root.NodeRight = newNode;
+                    AddingElement?.Invoke($"New Right node {newNode.ToString()} element was added.");
+                }
                 else
                     InsertRec(root.NodeRight, newNode);
             }
@@ -88,6 +102,7 @@ namespace BinaryTreeTask
         {
             root = null;
             count = 0;
+            TreeClearing?.Invoke($"Current binary tree was cleared at {DateTime.Now}");
         }
 
         public IEnumerator GetEnumerator()

@@ -8,7 +8,9 @@ namespace BinaryTreeTask
         {
             Console.WriteLine("Binary tree:");
             BinaryTree<int> tree = new BinaryTree<int>();
-            Node<int> root = new Node<int>();
+
+            tree.TreeClearing += Console.WriteLine;
+            tree.AddingElement += Console.WriteLine;
 
             tree.InsertNode(4);
             tree.InsertNode(2);
@@ -20,6 +22,7 @@ namespace BinaryTreeTask
             {
                 Console.WriteLine(item.ToString());
             }
+            tree.ClearTree();
         }
     }
 }
