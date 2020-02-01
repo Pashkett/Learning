@@ -10,12 +10,16 @@ namespace BinaryTreeTask
             BinaryTree<int> tree = new BinaryTree<int>();
             Node<int> root = new Node<int>();
 
-            tree.Insert(4);
-            tree.Insert(2);
-            tree.Insert(5);
-            tree.Insert(1);
-            tree.Insert(3);
-            Console.WriteLine(tree.ToString());
+            tree.InsertNode(4);
+            tree.InsertNode(2);
+            tree.InsertNode(5);
+            tree.InsertNode(1);
+            tree.InsertNode(3);
+            
+            foreach (var item in tree)
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
     }
 }
