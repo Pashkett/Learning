@@ -7,22 +7,27 @@ namespace BinaryTreeTask
         static void Main(string[] args)
         {
             Console.WriteLine("Binary tree:");
-            BinaryTree<int> tree = new BinaryTree<int>();
-
-            tree.TreeClearing += Console.WriteLine;
-            tree.AddingElement += Console.WriteLine;
-
-            tree.InsertNode(4);
-            tree.InsertNode(2);
-            tree.InsertNode(5);
-            tree.InsertNode(1);
-            tree.InsertNode(3);
-            
-            foreach (var item in tree)
+            StudentScore ss = new StudentScore()
             {
-                Console.WriteLine(item.ToString());
-            }
-            tree.ClearTree();
+                StudentName = "Ivan",
+                Score = 98,
+                TestName = "Math",
+                TestDate = DateTime.Now
+            };
+            StudentScore ss1 = new StudentScore()
+            {
+                StudentName = "Artem",
+                Score = 99,
+                TestName = "Math",
+                TestDate = DateTime.Now
+            };
+
+            Console.WriteLine(ss.ToString());
+
+            BinaryTree<StudentScore> binaryTree = new BinaryTree<StudentScore>();
+            binaryTree.AddingElement += Console.WriteLine;
+            binaryTree.InsertNode(ss);
+            binaryTree.InsertNode(ss1);
         }
     }
 }

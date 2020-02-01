@@ -8,7 +8,7 @@ using log4net.Repository;
 namespace BinaryTreeTask
 {
     public class Node<T> : IComparable<Node<T>>
-        where T : IComparable<T>
+        where T : IComparable
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private static ILoggerRepository logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());

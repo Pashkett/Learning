@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace BinaryTreeTask
 {
     public class BinaryTree<T> : IEnumerable
-        where T : IComparable<T>
+        where T : IComparable
     {
         private Node<T> root;
         private int count;
