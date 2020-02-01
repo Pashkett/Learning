@@ -10,8 +10,11 @@ namespace BinaryTreeTask
     public class Node<T> : IComparable<Node<T>>
         where T : IComparable
     {
-        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        private static ILoggerRepository logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+        private static readonly ILog log = 
+            LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        
+        private static ILoggerRepository logRepository = 
+            LogManager.GetRepository(Assembly.GetEntryAssembly());
 
         public T Data { get; set; }
         public Node<T> NodeLeft { get; set; }
