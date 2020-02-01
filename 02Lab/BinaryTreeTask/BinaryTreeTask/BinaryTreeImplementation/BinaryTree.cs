@@ -10,10 +10,7 @@ namespace BinaryTreeTask
         private Node<T> root;
         private int count;
 
-        public int Count
-        {
-            get => count;
-        }
+        public int Count => count;
 
         public delegate void BinaryTreeHandler(string message);
         public event BinaryTreeHandler TreeClearing; 
