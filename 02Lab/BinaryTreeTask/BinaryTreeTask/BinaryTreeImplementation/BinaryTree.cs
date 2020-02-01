@@ -62,6 +62,7 @@ namespace BinaryTreeTask
                     InsertRec(root.NodeRight, newNode);
             }
         }
+        
         public bool ContainsNode(T data)
         {
             Node<T> parentNode;
