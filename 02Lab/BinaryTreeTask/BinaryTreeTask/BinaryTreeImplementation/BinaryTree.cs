@@ -24,10 +24,7 @@ namespace BinaryTreeTask
         public event BinaryTreeHandler TreeClearing; 
         public event BinaryTreeHandler AddingElement;
 
-        public BinaryTree()
-        {
-            root = null;
-        }
+        public BinaryTree() => root = null;
 
         public void InsertNode(T data)
         {
