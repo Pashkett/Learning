@@ -10,11 +10,6 @@ namespace BinaryTreeTask
         private Node<T> root;
         private int count;
 
-        public Node<T> Root
-        {
-            get => root;
-        }
-
         public int Count
         {
             get => count;
