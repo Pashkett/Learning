@@ -6,28 +6,40 @@ namespace BinaryTreeTask
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Binary tree:");
-            StudentScore ss = new StudentScore()
-            {
-                StudentName = "Ivan",
-                Score = 98,
-                TestName = "Math",
-                TestDate = DateTime.Now
-            };
-            StudentScore ss1 = new StudentScore()
-            {
-                StudentName = "Artem",
-                Score = 99,
-                TestName = "Math",
-                TestDate = DateTime.Now
-            };
-
-            Console.WriteLine(ss.ToString());
-
             BinaryTree<StudentScore> binaryTree = new BinaryTree<StudentScore>();
             binaryTree.AddingElement += Console.WriteLine;
-            binaryTree.InsertNode(ss);
-            binaryTree.InsertNode(ss1);
+            binaryTree.TreeClearing += Console.WriteLine;
+
+            bool toContinue = true;
+            while (toContinue)
+            {
+                Console.WriteLine("Please add student scores [Student Name], [Test Name] and [Score].");
+
+                Console.Write("Student Name: ");
+                string name = Console.ReadLine();
+
+                Console.Write("\nTest Name: ");
+                string testName = Console.ReadLine();
+
+                Console.Write("\nScore: ");
+                string score = Console.ReadLine();
+                if (int.TryParse(score, out int scoreint))
+                    binaryTree.InsertNode(new StudentScore() 
+                        { 
+                            StudentName = name, 
+                            TestName = testName, 
+                            Score = scoreint }
+                    );
+
+                Console.WriteLine("To Continue press Y, to exit other");
+                string resolution = Console.ReadLine();
+
+                if (resolution.ToUpper() == "Y")
+                    toContinue = true;
+                else
+                    toContinue = false;
+            }
         }
     }
 }
+ 
