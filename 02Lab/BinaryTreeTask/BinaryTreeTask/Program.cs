@@ -13,7 +13,8 @@ namespace BinaryTreeTask
             bool toContinue = true;
             while (toContinue)
             {
-                Console.WriteLine("Please add student scores [Student Name], [Test Name] and [Score].");
+                Console.WriteLine("Please add student scores [Student Name], " +
+                    "[Test Name] and [Score].");
 
                 Console.Write("Student Name: ");
                 string name = Console.ReadLine();
