@@ -42,7 +42,11 @@ namespace BinaryTreeTask
             return Data.CompareTo(other.Data);
         }
 
-        public override string ToString() => Data.ToString();
+        public override string ToString()
+        {
+            return $"Node: {Data.ToString()}, IsLeft: {IsLeft.ToString()}, with:\n" +
+                $"\t[Left node: {NodeLeft?.Data.ToString() ?? "Empty"}] and [Right node: {NodeRight?.Data.ToString() ?? "Empty"}]";
+        }
 
         public static bool operator > (Node<T> node1, Node<T> node2)
         {

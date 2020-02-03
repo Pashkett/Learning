@@ -18,7 +18,7 @@ namespace BinaryTreeTask
 
         public BinaryTree() => root = null;
 
-        public void InsertNode(T data)
+        public void Add(T data)
         {
             if (root == null)
             {
@@ -26,69 +26,57 @@ namespace BinaryTreeTask
                 root = new Node<T>(data);
             }
             else
-                InsertRec(root, new Node<T>(data));
+                AddNode(root, new Node<T>(data));
         }
 
-        private void InsertRec(Node<T> root, Node<T> newNode)
+        private void AddNode(Node<T> root, Node<T> newNode)
         {
             if (newNode < root)
             {
                 if (root.NodeLeft == null)
                 {
                     root.NodeLeft = newNode;
+                    root.NodeLeft.IsLeft = true;
                     AddingElement?.Invoke($"New Left node {newNode.ToString()} element was added.");
                 }
                 else
-                {
-                    InsertRec(root.NodeLeft, newNode);
-                }
+                    AddNode(root.NodeLeft, newNode);
             }
             else
             {
                 if (root.NodeRight == null)
                 {
                     root.NodeRight = newNode;
+                    root.NodeRight.IsLeft = false;
                     AddingElement?.Invoke($"New Right node {newNode.ToString()} element was added.");
                 }
                 else
-                    InsertRec(root.NodeRight, newNode);
+                    AddNode(root.NodeRight, newNode);
             }
         }
-        
-        public bool ContainsNode(T data)
-        {
-            Node<T> parentNode;
-            return FindCurrentAndParent(data, out parentNode) != null;
-        }
 
-        private Node<T> FindCurrentAndParent(T data, out Node<T> parentNode)
+        public bool ContainsNode(T data) => 
+            FindCurrent(data) != null;
+
+        private Node<T> FindCurrent(T data)
         {
             Node<T> current = root;
-            parentNode = null;
             Node<T> searchableNode = new Node<T>(data);
 
             while (current != null)
             {
                 if (searchableNode < current)
-                {
-                    parentNode = current;
                     current = current.NodeLeft;
-                }
                 else if (searchableNode > current)
-                {
-                    parentNode = current;
                     current = current.NodeRight;
-                }
                 else
-                {
                     break;
-                }
             }
 
             return current;
         }
 
-        public void ClearTree()
+        public void Clear()
         {
             root = null;
             count = 0;

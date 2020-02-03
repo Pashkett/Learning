@@ -25,7 +25,7 @@ namespace BinaryTreeTask
                 Console.Write("\nScore: ");
                 string score = Console.ReadLine();
                 if (int.TryParse(score, out int scoreint))
-                    binaryTree.InsertNode(new StudentScore() 
+                    binaryTree.Add(new StudentScore() 
                         { 
                             StudentName = name, 
                             TestName = testName, 
