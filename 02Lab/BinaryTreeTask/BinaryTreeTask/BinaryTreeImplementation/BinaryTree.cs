@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BinaryTreeTask
 {
-    public class BinaryTree<T> : IEnumerable
+    public class BinaryTree<T> : IEnumerable<T>
         where T : IComparable
     {
         private Node<T> root;
@@ -95,22 +95,23 @@ namespace BinaryTreeTask
             TreeClearing?.Invoke($"Current binary tree was cleared at {DateTime.Now}");
         }
 
-        public IEnumerator GetEnumerator()
-        {
-            return BinaryTreeEnumerator();
-        }
+        IEnumerator<T> IEnumerable<T>.GetEnumerator() =>
+            BinaryTreeEnumerator();
 
-        public IEnumerator BinaryTreeEnumerator()
+        public IEnumerator GetEnumerator() =>
+            BinaryTreeEnumerator();
+
+        public IEnumerator<T> BinaryTreeEnumerator()
         {
             if (root != null)
             {
                 Stack<Node<T>> stack = new Stack<Node<T>>();
-                
+
                 Node<T> current = root;
                 bool goLeftNext = true;
-        
+
                 stack.Push(current);
-        
+
                 while (stack.Count > 0)
                 {
                     if (goLeftNext)
@@ -121,9 +122,9 @@ namespace BinaryTreeTask
                             current = current.NodeLeft;
                         }
                     }
-        
+
                     yield return current.Data;
-        
+
                     if (current.NodeRight != null)
                     {
                         current = current.NodeRight;
