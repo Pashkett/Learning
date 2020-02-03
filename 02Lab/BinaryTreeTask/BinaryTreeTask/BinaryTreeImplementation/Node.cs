@@ -17,6 +17,7 @@ namespace BinaryTreeTask
             LogManager.GetRepository(Assembly.GetEntryAssembly());
 
         public T Data { get; set; }
+        public bool IsLeft { get; set; } = default;
         public Node<T> NodeLeft { get; set; }
         public Node<T> NodeRight { get; set; }
         
