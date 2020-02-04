@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace CustomArray
 {
-    public class CustomArray<T> : ICloneable
+    public class CustomArray<T> : ICloneable, IEnumerable<T>
     {
         public T[] Elements { get; private set; }
         public int InitialIndex { get; private set; } = 0;
@@ -30,6 +32,16 @@ namespace CustomArray
             }
 
             return result;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }
