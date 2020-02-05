@@ -36,7 +36,6 @@ namespace BinaryTreeTask
                 if (root.NodeLeft == null)
                 {
                     root.NodeLeft = newNode;
-                    root.NodeLeft.IsLeft = true;
                     AddingElement?.Invoke($"New Left node {newNode.ToString()} element was added.");
                 }
                 else
@@ -47,7 +46,6 @@ namespace BinaryTreeTask
                 if (root.NodeRight == null)
                 {
                     root.NodeRight = newNode;
-                    root.NodeRight.IsLeft = false;
                     AddingElement?.Invoke($"New Right node {newNode.ToString()} element was added.");
                 }
                 else

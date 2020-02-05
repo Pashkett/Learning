@@ -17,7 +17,6 @@ namespace BinaryTreeTask
             LogManager.GetRepository(Assembly.GetEntryAssembly());
 
         public T Data { get; set; }
-        public bool IsLeft { get; set; } = default;
         public Node<T> NodeLeft { get; set; }
         public Node<T> NodeRight { get; set; }
         
@@ -44,8 +43,9 @@ namespace BinaryTreeTask
 
         public override string ToString()
         {
-            return $"Node: {Data.ToString()}, IsLeft: {IsLeft.ToString()}, with:\n" +
-                $"\t[Left node: {NodeLeft?.Data.ToString() ?? "Empty"}] and [Right node: {NodeRight?.Data.ToString() ?? "Empty"}]";
+            return $"Node: {Data.ToString()}, with: " +
+                $"[Left node: {NodeLeft?.Data.ToString() ?? "Empty"}] " +
+                $"and [Right node: {NodeRight?.Data.ToString() ?? "Empty"}]";
         }
 
         public static bool operator > (Node<T> node1, Node<T> node2)
