@@ -11,7 +11,6 @@ namespace BinaryTreeTask
         private int count;
 
         public int Count => count;
-        public Node<T> Root => root;
 
         public delegate void BinaryTreeHandler(string message);
         public event BinaryTreeHandler TreeClearing; 
@@ -128,9 +127,24 @@ namespace BinaryTreeTask
             }
         }
 
-        public IEnumerable<T> PreOrder(T node)
+        public IEnumerable<T> PreOrder()
         {
-            throw new NotImplementedException();
+            List<Node<T>> nodes = new List<Node<T>>();
+            PopulatePreorderedList(nodes, root);
+            foreach (var item in nodes)
+            {
+                yield return item.Data;
+            }
+        }
+
+        private void PopulatePreorderedList(List<Node<T>> nodes, Node<T> node)
+        {
+            if (node != null)
+            {
+                nodes.Add(node);
+                PopulatePreorderedList(nodes, node.NodeLeft);
+                PopulatePreorderedList(nodes, node.NodeRight);
+            }
         }
     }
 }

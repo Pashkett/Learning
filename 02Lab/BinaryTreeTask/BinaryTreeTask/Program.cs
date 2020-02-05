@@ -25,12 +25,12 @@ namespace BinaryTreeTask
                 Console.Write("\nScore: ");
                 string score = Console.ReadLine();
                 if (int.TryParse(score, out int scoreint))
-                    binaryTree.Add(new StudentScore() 
-                        { 
-                            StudentName = name, 
-                            TestName = testName, 
-                            Score = scoreint }
-                    );
+                    binaryTree.Add(new StudentScore()
+                                    {
+                                        StudentName = name,
+                                        TestName = testName,
+                                        Score = scoreint
+                                    });
 
                 Console.WriteLine("To Continue press Y, to exit other");
                 string resolution = Console.ReadLine();
@@ -39,6 +39,16 @@ namespace BinaryTreeTask
                     toContinue = true;
                 else
                     toContinue = false;
+            }
+
+            foreach (var item in binaryTree)
+            {
+                Console.WriteLine(item);
+            }
+
+            foreach (var item in binaryTree.PreOrder())
+            {
+                Console.WriteLine(item);
             }
         }
     }
