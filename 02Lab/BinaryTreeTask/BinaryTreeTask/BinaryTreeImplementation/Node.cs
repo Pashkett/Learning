@@ -24,7 +24,7 @@ namespace BinaryTreeTask
         public Node() 
         {
             XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
-            log.Info($"New Node was created at {DateTime.Now}");
+            log.Info($"New Empty Node was created at {DateTime.Now}");
         }
 
         public Node(T data)

@@ -1,8 +1,11 @@
 using NUnit.Framework;
+using BinaryTree;
+
 
 namespace BinaryTree.Test
 {
-    public class Tests
+    [TestFixture]
+    public class NodeTest
     {
         [SetUp]
         public void Setup()
