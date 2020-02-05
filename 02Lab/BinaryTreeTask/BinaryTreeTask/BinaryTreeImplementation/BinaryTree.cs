@@ -11,6 +11,7 @@ namespace BinaryTreeTask
         private int count;
 
         public int Count => count;
+        public Node<T> Root => root;
 
         public delegate void BinaryTreeHandler(string message);
         public event BinaryTreeHandler TreeClearing; 
@@ -125,6 +126,11 @@ namespace BinaryTreeTask
                     }
                 }
             }
+        }
+
+        public IEnumerable<T> PreOrder(T node)
+        {
+            throw new NotImplementedException();
         }
     }
 }
