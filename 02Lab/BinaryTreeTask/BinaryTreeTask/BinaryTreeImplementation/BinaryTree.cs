@@ -131,9 +131,9 @@ namespace BinaryTreeTask
         {
             List<Node<T>> nodes = new List<Node<T>>();
             PopulatePreorderedList(nodes, root);
-            foreach (var item in nodes)
+            foreach (var node in nodes)
             {
-                yield return item.Data;
+                yield return node.Data;
             }
         }
 
