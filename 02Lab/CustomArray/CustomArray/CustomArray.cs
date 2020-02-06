@@ -6,21 +6,35 @@ namespace CustomArray
 {
     public class CustomArray<T> : ICloneable, IEnumerable<T>
     {
+        private int deltaIndex { get; set; } = default;
+
         public T[] Elements { get; private set; }
-        public int InitialIndex { get; private set; } = 0;
-        public int Length
+        public int StartIndex { get; private set; } = default;
+        public int EndIndex { get; private set; } = default;
+        public int Length => Elements.Length;
+
+        public CustomArray() : this(0, 0, null) { }
+        public CustomArray(params T[] elements) : this(0, elements.Length, elements) =>
+            Elements = elements;
+        public CustomArray(int startIndex, int endIndex, params T[] elements)
         {
-            get => Elements.Length;
+            StartIndex = startIndex;
+            EndIndex = endIndex;
+            Elements = elements;
+            deltaIndex = 0 - startIndex;
         }
-
-
-        public CustomArray() : this(0, null) { }
-        public CustomArray(params T[] elements) : this(0, elements) =>
-            Elements = elements;
-        public CustomArray(int startingIndex, params T[] elements)
+        
+        public T this[int i]
         {
-            InitialIndex = startingIndex;
-            Elements = elements;
+            get
+            {
+                if (i < StartIndex || i > EndIndex)
+                    throw new ArgumentOutOfRangeException();
+                if (Elements != null)
+                    throw new ArgumentNullException();
+
+                return Elements[i - deltaIndex];
+            }
         }
 
         public object Clone()
@@ -31,7 +45,7 @@ namespace CustomArray
                 result[i] = Elements[i];
             }
 
-            return result;
+            return new CustomArray<T>(StartIndex, EndIndex, result);
         }
 
         public IEnumerator<T> GetEnumerator()
