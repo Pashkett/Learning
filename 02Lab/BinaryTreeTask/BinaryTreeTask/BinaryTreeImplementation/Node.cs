@@ -16,13 +16,15 @@ namespace BinaryTreeTask
         private static ILoggerRepository logRepository = 
             LogManager.GetRepository(Assembly.GetEntryAssembly());
 
+        private static FileInfo fileInfo = new FileInfo("log4net.config");
+
         public T Data { get; set; }
         public Node<T> NodeLeft { get; set; }
         public Node<T> NodeRight { get; set; }
         
         public Node() 
         {
-            XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
+            XmlConfigurator.Configure(logRepository, fileInfo);
             log.Info($"New Empty Node was created at {DateTime.Now}");
         }
 
@@ -30,7 +32,7 @@ namespace BinaryTreeTask
         {
             Data = data;
 
-            XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
+            XmlConfigurator.Configure(logRepository, fileInfo);
             log.Info($"New Node {data.ToString()} was created at {DateTime.Now}");
         }
 
@@ -50,8 +52,7 @@ namespace BinaryTreeTask
 
         public static bool operator > (Node<T> node1, Node<T> node2)
         {
-            var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
-            XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
+            XmlConfigurator.Configure(logRepository, fileInfo);
 
             if (node1 == null || node2 == null)
             {
@@ -64,8 +65,7 @@ namespace BinaryTreeTask
 
         public static bool operator < (Node<T> node1, Node<T> node2)
         {
-            var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
-            XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
+            XmlConfigurator.Configure(logRepository, fileInfo);
 
             if (node1 == null || node2 == null)
             {
