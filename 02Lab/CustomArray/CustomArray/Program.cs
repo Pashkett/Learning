@@ -7,8 +7,13 @@ namespace CustomArray
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            int[] array = new int[5];
+            
+            CustomArray<int> customArray = new CustomArray<int>();
+
+            foreach (var item in customArray)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

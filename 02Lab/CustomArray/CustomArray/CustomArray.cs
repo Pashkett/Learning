@@ -6,22 +6,23 @@ namespace CustomArray
 {
     public class CustomArray<T> : ICloneable, IEnumerable<T>
     {
+        private const int defaultStart = 0;
         private int deltaIndex { get; set; } = default;
 
         public T[] Elements { get; private set; }
         public int StartIndex { get; private set; } = default;
         public int EndIndex { get; private set; } = default;
-        public int Length => Elements.Length;
+        public int Length => Elements?.Length ?? 0;
 
-        public CustomArray() : this(0, 0, null) { }
-        public CustomArray(params T[] elements) : this(0, elements.Length, elements) =>
+        public CustomArray() : this(0, null) { }
+        public CustomArray(params T[] elements) : this(0, elements) =>
             Elements = elements;
-        public CustomArray(int startIndex, int endIndex, params T[] elements)
+        public CustomArray(int startIndex, params T[] elements)
         {
             StartIndex = startIndex;
-            EndIndex = endIndex;
+            EndIndex = StartIndex + elements?.Length ?? 0 - 1;
             Elements = elements;
-            deltaIndex = 0 - startIndex;
+            deltaIndex = defaultStart - startIndex;
         }
 
         public T this[int i]
@@ -55,15 +56,30 @@ namespace CustomArray
                 result[i] = Elements[i];
             }
 
-            return new CustomArray<T>(StartIndex, EndIndex, result);
+            return new CustomArray<T>(StartIndex, result);
         }
 
-        public IEnumerator<T> GetEnumerator() => ((IEnumerable<T>)Elements).GetEnumerator();
+        public IEnumerator<T> GetEnumerator()
+        {
+            if (Elements == null)
+                throw new ArgumentNullException("There are no elements in CustomArray");
 
-        IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable<T>)Elements).GetEnumerator();
+            return ((IEnumerable<T>)Elements).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            if (Elements == null)
+                throw new ArgumentNullException("There are no elements in CustomArray");
+
+            return ((IEnumerable<T>)Elements).GetEnumerator();
+        }
 
         public IEnumerable<T> Reversed()
         {
+            if (Elements == null)
+                throw new ArgumentNullException("There are no elements in CustomArray");
+
             for (int i = Elements.Length - 1; i >= 0; i--)
             {
                 yield return Elements[i];
