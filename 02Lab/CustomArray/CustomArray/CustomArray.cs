@@ -23,7 +23,7 @@ namespace CustomArray
             Elements = elements;
             deltaIndex = 0 - startIndex;
         }
-        
+
         public T this[int i]
         {
             get
@@ -34,6 +34,16 @@ namespace CustomArray
                     throw new ArgumentNullException();
 
                 return Elements[i - deltaIndex];
+            }
+
+            set
+            {
+                if (i < StartIndex || i > EndIndex)
+                    throw new ArgumentOutOfRangeException();
+                if (Elements != null)
+                    throw new ArgumentNullException();
+
+                Elements[i - deltaIndex] = value;
             }
         }
 
@@ -48,14 +58,16 @@ namespace CustomArray
             return new CustomArray<T>(StartIndex, EndIndex, result);
         }
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerator<T> GetEnumerator() => ((IEnumerable<T>)Elements).GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable<T>)Elements).GetEnumerator();
+
+        public IEnumerable<T> Reversed()
         {
-            throw new NotImplementedException();
+            for (int i = Elements.Length - 1; i >= 0; i--)
+            {
+                yield return Elements[i];
+            }
         }
     }
 }
