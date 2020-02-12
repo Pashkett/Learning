@@ -7,68 +7,64 @@ namespace BinaryTree.Test
     [TestFixture]
     public class NodeTest
     {
-        private Node<int> node1;
-        private Node<int> node2;
-        private Node<int> node3;
-
-
-        [SetUp]
-        public void Setup()
-        {
-            node1 = new Node<int>(1);
-            node2 = new Node<int>(2);
-            node3 = null;
-        }
-
         /// <summary>
-        /// Assert that Less Than operator works correctly
+        /// Assert that "Less Than" operator works correctly
         /// </summary>
-        [Test]
-        public void LessThanOperatorTest()
+        [TestCaseSource(typeof(NodeTestData), "LessThanCases")]
+        public void LessThanOperatorTest<T>(Node<T> n1, Node<T> n2)
+            where T : IComparable
         {
             bool expected = true;
-            Assert.AreEqual(expected, node1 < node2);
+
+            Assert.AreEqual(expected, ReturnComparisonLessThan(n1, n2));
         }
 
         /// <summary>
-        /// Assert that Grater Than operator works correctly
+        /// Assert that "Grater Than" operator works correctly
         /// </summary>
-        [Test]
-        public void GraterThanOperatorTest()
+        [TestCaseSource(typeof(NodeTestData), "GraterThanCases")]
+        public void GraterThanOperatorTest<T>(Node<T> n1, Node<T> n2)
+            where T : IComparable
         {
-            bool expected = false;
-            Assert.AreEqual(expected, node1 > node2);
+            bool expected = true;
+
+            Assert.AreEqual(expected, ReturnComparisonGraterThan(n1, n2));
         }
 
         /// <summary>
-        /// Assert that Less Than operator thows correct exception
+        /// Assert that "Less Than" operator thows correct exception
         /// </summary>
-        [Test]
-        public void LessThanOperatorExceptions()
+        [TestCaseSource(typeof(NodeTestData), "CasesForExceptionsTesting")]
+        public void LessThanOperatorExceptions<T>(Node<T> n1, Node<T> n2)
+            where T : IComparable
         {
-            var ex = Assert.Throws<ArgumentNullException>(() => ReturnComparisonLessThan());
+            var ex = Assert.Throws<ArgumentNullException>(() => ReturnComparisonLessThan(n1, n2));
 
             Assert.AreEqual("Nodes should not be null.", ex.ParamName);
         }
 
         /// <summary>
-        /// Assert that Grater Than operator thows correct exception
+        /// Assert that "Grater Than" operator thows correct exception
         /// </summary>
-        public void GraterThanOperatorExceptions()
+        [TestCaseSource(typeof(NodeTestData), "CasesForExceptionsTesting")]
+        public void GraterThanOperatorExceptions<T>(Node<T> n1, Node<T> n2)
+            where T : IComparable
         {
-            var ex = Assert.Throws<ArgumentNullException>(() => ReturnComparisonGraterThan());
+            var ex = Assert.Throws<ArgumentNullException>(() => ReturnComparisonGraterThan(n1, n2));
 
             Assert.AreEqual("Nodes should not be null.", ex.ParamName);
         }
 
-        private bool ReturnComparisonGraterThan()
+        private bool ReturnComparisonGraterThan<T>(Node<T> n1, Node<T> n2)
+            where T : IComparable
         {
-            return node1 > node3;
+            return n1 > n2;
         }
-        
-        private bool ReturnComparisonLessThan()
+
+        private bool ReturnComparisonLessThan<T>(Node<T> n1, Node<T> n2)
+            where T : IComparable
         {
-            return node1 < node3;
+            return n1 < n2;
         }
     }
 }
