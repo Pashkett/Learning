@@ -9,7 +9,8 @@ namespace CustomArray
         private const int defaultStart = 0;
         private int deltaIndex { get; set; } = default;
 
-        public T[] Elements { get; private set; }
+        private T[] Elements { get; set; }
+
         public int StartIndex { get; private set; } = default;
         public int EndIndex { get; private set; } = default;
         public int Length => Elements?.Length ?? 0;
@@ -20,7 +21,7 @@ namespace CustomArray
         public CustomArray(int startIndex, params T[] elements)
         {
             StartIndex = startIndex;
-            EndIndex = StartIndex + elements?.Length ?? 0 - 1;
+            EndIndex = (StartIndex + elements?.Length ?? 0) - 1;
             Elements = elements;
             deltaIndex = defaultStart - startIndex;
         }
