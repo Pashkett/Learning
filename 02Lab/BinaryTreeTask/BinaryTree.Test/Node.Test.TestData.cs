@@ -23,7 +23,7 @@ namespace BinaryTree.Test
         };
 
         static object[] CasesForExceptionsTesting =
-{
+        {
             new object[] {new Node<int>(10), null },
             new object[] {null, new Node<int>(12) },
             new object[] {new Node<int>(12), null },
