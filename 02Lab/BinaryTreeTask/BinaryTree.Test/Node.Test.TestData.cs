@@ -5,7 +5,7 @@ namespace BinaryTree.Test
     class NodeTestData
 	{
         static object[] LessThanCases =
-{
+        {
             new object[] {new Node<int>(10), new Node<int>(18) },
             new object[] {new Node<int>(11), new Node<int>(12) },
             new object[] {new Node<int>(12), new Node<int>(13) },
