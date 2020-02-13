@@ -7,7 +7,6 @@ namespace BinaryTree.Test
     public class BinaryTreeTest
     {
         private BinaryTree<int> binaryTree1;
-        private BinaryTree<int> binaryTree2;
 
         [SetUp]
         public void Setup()
