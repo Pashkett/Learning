@@ -153,8 +153,8 @@ namespace LinqTask
                 var result = (str.Where(x => x.Length % 2 == 0)
                                 .Select(x => x.First())
                                     .Concat(
-                                         str.Where(x => x.Length % 2 != 0)
-                                            .Select(x => x.Last()))).OrderByDescending(x => (int)x);
+                                        str.Where(x => x.Length % 2 != 0)
+                                           .Select(x => x.Last()))).OrderByDescending(x => (int)x);
             }
 
             {

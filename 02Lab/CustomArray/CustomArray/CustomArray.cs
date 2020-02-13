@@ -30,22 +30,22 @@ namespace CustomArray
         {
             get
             {
+                if (Elements == null)
+                    throw new ArgumentNullException();
                 if (i < StartIndex || i > EndIndex)
                     throw new ArgumentOutOfRangeException();
-                if (Elements != null)
-                    throw new ArgumentNullException();
 
-                return Elements[i - deltaIndex];
+                return Elements[i + deltaIndex];
             }
 
             set
             {
+                if (Elements == null)
+                    throw new ArgumentNullException();
                 if (i < StartIndex || i > EndIndex)
                     throw new ArgumentOutOfRangeException();
-                if (Elements != null)
-                    throw new ArgumentNullException();
 
-                Elements[i - deltaIndex] = value;
+                Elements[i + deltaIndex] = value;
             }
         }
 
