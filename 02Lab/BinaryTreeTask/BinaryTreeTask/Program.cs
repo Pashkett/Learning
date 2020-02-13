@@ -7,8 +7,8 @@ namespace BinaryTreeTask
         static void Main(string[] args)
         {
             BinaryTree<StudentScore> binaryTree = new BinaryTree<StudentScore>();
-            binaryTree.AddingElement += Console.WriteLine;
-            binaryTree.TreeClearing += Console.WriteLine;
+            binaryTree.AddingElementEvent += Console.WriteLine;
+            binaryTree.TreeClearingEvent += Console.WriteLine;
 
             bool toContinue = true;
             while (toContinue)

@@ -13,8 +13,8 @@ namespace BinaryTreeTask
         public int Count => count;
 
         public delegate void BinaryTreeHandler(string message);
-        public event BinaryTreeHandler TreeClearing; 
-        public event BinaryTreeHandler AddingElement;
+        public event BinaryTreeHandler TreeClearingEvent; 
+        public event BinaryTreeHandler AddingElementEvent;
 
         public BinaryTree() => root = null;
 
@@ -22,7 +22,7 @@ namespace BinaryTreeTask
         {
             if (root == null)
             {
-                AddingElement?.Invoke($"Root element {data.ToString()} was added.");
+                AddingElementEvent?.Invoke($"Root element {data.ToString()} was added.");
                 root = new Node<T>(data);
             }
             else
@@ -36,7 +36,7 @@ namespace BinaryTreeTask
                 if (root.NodeLeft == null)
                 {
                     root.NodeLeft = newNode;
-                    AddingElement?.Invoke($"New Left node {newNode.ToString()} element was added.");
+                    AddingElementEvent?.Invoke($"New Left node {newNode.ToString()} element was added.");
                 }
                 else
                     AddNode(root.NodeLeft, newNode);
@@ -46,7 +46,7 @@ namespace BinaryTreeTask
                 if (root.NodeRight == null)
                 {
                     root.NodeRight = newNode;
-                    AddingElement?.Invoke($"New Right node {newNode.ToString()} element was added.");
+                    AddingElementEvent?.Invoke($"New Right node {newNode.ToString()} element was added.");
                 }
                 else
                     AddNode(root.NodeRight, newNode);
@@ -78,7 +78,7 @@ namespace BinaryTreeTask
         {
             root = null;
             count = 0;
-            TreeClearing?.Invoke($"Current binary tree was cleared at {DateTime.Now}");
+            TreeClearingEvent?.Invoke($"Current binary tree was cleared at {DateTime.Now}");
         }
 
         IEnumerator<T> IEnumerable<T>.GetEnumerator() =>
