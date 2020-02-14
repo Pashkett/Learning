@@ -2,6 +2,7 @@ using System;
 using NUnit.Framework;
 using CustomArray;
 
+
 namespace CustomArrayTests
 {
     [TestFixture]
@@ -11,7 +12,7 @@ namespace CustomArrayTests
         /// Assert that "End Index" works correctly
         /// </summary>
         [TestCaseSource(typeof(EndIndexTest))]
-        public void EndIndexesTest<T>(CustomArray<T> customArray, int endIndex)
+        public void CustomArray_IsValid_EndIndex<T>(CustomArray<T> customArray, int endIndex)
         {
             Assert.AreEqual(endIndex, customArray.EndIndex);
         }
@@ -20,7 +21,7 @@ namespace CustomArrayTests
         /// Assert that "Start Index" works correctly
         /// </summary>
         [TestCaseSource(typeof(StartIndexTest))]
-        public void StartIndexesTest<T>(CustomArray<T> customArray, int startIndex)
+        public void CustomArray_IsValid_StartIndex<T>(CustomArray<T> customArray, int startIndex)
         {
             Assert.AreEqual(startIndex, customArray.StartIndex);
         }
@@ -29,7 +30,7 @@ namespace CustomArrayTests
         /// Assert that custom array "Length" works correctly
         /// </summary>
         [TestCaseSource(typeof(LengthTest))]
-        public void LengthTest<T>(CustomArray<T> customArray, int length)
+        public void CustomArray_IsValid_Length<T>(CustomArray<T> customArray, int length)
         {
             Assert.AreEqual(length, customArray.Length);
         }
@@ -38,43 +39,38 @@ namespace CustomArrayTests
         /// Assert that custom array returns right ArgumentOutOfRangeException
         /// </summary>
         [TestCaseSource(typeof(IndexerTestData), "GetIndexerOutOrRangeException")]
-        public void GetIndexerOutOfRangeException<T>(CustomArray<T> customArray, int index)
+        public void CustomArray_GetIndex_OutOfRangeException<T>(CustomArray<T> customArray, int index)
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() => GetIndex(customArray, index));
+            Assert.Throws<ArgumentOutOfRangeException>(() => customArray[index].ToString());
         }
 
         /// <summary>
         /// Assert that custom array returns right ArgumentNullException
         /// </summary>
         [TestCaseSource(typeof(IndexerTestData), "GetIndexerNullException")]
-        public void GetIndexerNullException<T>(CustomArray<T> customArray, int index)
+        public void CustomArray_GetIndex_NullException<T>(CustomArray<T> customArray, int index)
         {
-            Assert.Throws<ArgumentNullException>(() => GetIndex(customArray, index));
+            Assert.Throws<ArgumentNullException>(() => customArray[index].ToString());
         }
 
         /// <summary>
         /// Assert that custom array returns right element by index
         /// </summary>
         [TestCaseSource(typeof(IndexerTestData), "GetIndexerValidCases")]
-        public void GetIndexersValidCases<T>(CustomArray<T> customArray, int index, T validValue)
+        public void GetArrayValueByIndex_IsValid<T>(CustomArray<T> customArray, int index, T validValue)
         {
-            Assert.AreEqual(validValue, GetIndex(customArray, index));
+            Assert.AreEqual(validValue, customArray[index]);
         }
 
         /// <summary>
         /// Assert that custom array returns right element by index
         /// </summary>
         [TestCaseSource(typeof(IndexerTestData), "SetIndexerValidCases")]
-        public void SetIndexersValidCases<T>(CustomArray<T> customArray, int index, T setValue, T expectedValue)
+        public void SetArrayValueByIndex_IsValid<T>(CustomArray<T> customArray, int index, T setValue, T expectedValue)
         {
             customArray[index] = setValue;
-            Assert.AreEqual(expectedValue, GetIndex(customArray, index));
-        }
 
-        /// <summary>
-        /// Method for testing indexers
-        /// </summary>
-        private T GetIndex<T>(CustomArray<T> customArray, int index) => 
-            customArray[index];
+            Assert.AreEqual(expectedValue, customArray[index]);
+        }
     }
 }
