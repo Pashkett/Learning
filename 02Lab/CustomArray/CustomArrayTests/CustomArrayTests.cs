@@ -6,7 +6,7 @@ using CustomArray;
 namespace CustomArrayTests
 {
     [TestFixture]
-    public class Tests
+    public class CustomArrayTests
     {
         /// <summary>
         /// Assert that "End Index" works correctly
