@@ -11,7 +11,7 @@ namespace BinaryTree.Test
         /// Assert that "Less Than" operator works correctly
         /// </summary>
         [TestCaseSource(typeof(NodeTestData), "LessThanCases")]
-        public void LessThanOperatorTest<T>(Node<T> n1, Node<T> n2)
+        public void LessThanOperator_ReturnValid<T>(Node<T> n1, Node<T> n2)
             where T : IComparable
         {
             bool expected = true;
@@ -23,7 +23,7 @@ namespace BinaryTree.Test
         /// Assert that "Grater Than" operator works correctly
         /// </summary>
         [TestCaseSource(typeof(NodeTestData), "GraterThanCases")]
-        public void GraterThanOperatorTest<T>(Node<T> n1, Node<T> n2)
+        public void GraterThanOperator_ReturnValid<T>(Node<T> n1, Node<T> n2)
             where T : IComparable
         {
             bool expected = true;
@@ -35,7 +35,7 @@ namespace BinaryTree.Test
         /// Assert that "Less Than" operator thows correct exception
         /// </summary>
         [TestCaseSource(typeof(NodeTestData), "CasesForExceptionsTesting")]
-        public void LessThanOperatorExceptions<T>(Node<T> n1, Node<T> n2)
+        public void LessThanOperator_ComparingWithNulls_NullException<T>(Node<T> n1, Node<T> n2)
             where T : IComparable
         {
             var ex = Assert.Throws<ArgumentNullException>(() => ReturnComparisonLessThan(n1, n2));
@@ -47,7 +47,7 @@ namespace BinaryTree.Test
         /// Assert that "Grater Than" operator thows correct exception
         /// </summary>
         [TestCaseSource(typeof(NodeTestData), "CasesForExceptionsTesting")]
-        public void GraterThanOperatorExceptions<T>(Node<T> n1, Node<T> n2)
+        public void GraterThanOperator_ComparingWithNulls_NullException<T>(Node<T> n1, Node<T> n2)
             where T : IComparable
         {
             var ex = Assert.Throws<ArgumentNullException>(() => ReturnComparisonGraterThan(n1, n2));

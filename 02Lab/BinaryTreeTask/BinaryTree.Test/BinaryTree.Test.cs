@@ -32,7 +32,7 @@ namespace BinaryTree.Test
         [TestCase(8)]
         [TestCase(9)]
         [TestCase(10)]
-        public void ContainsTest(int value)
+        public void ContainsNode_ReturnIntNode_ValidCases(int value)
         {
             var result = binaryTree1.ContainsNode(value);
 
