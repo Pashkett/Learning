@@ -49,11 +49,11 @@
           <AssociatedConnUserName />
           <FullPath>Task2.2 NotUsedPositions.sql</FullPath>
         </FileNode>
-        <FileNode Name="Task2.3 NotUsedPositions.sql">
+        <FileNode Name="Task2.3 CountEmployeeByProjectAndTitle.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>Task2.3 NotUsedPositions.sql</FullPath>
+          <FullPath>Task2.3 CountEmployeeByProjectAndTitle.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

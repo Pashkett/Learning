@@ -1,1 +1,1 @@
-SELECT 	* FROM dbo.Title AS t	LEFT JOIN dbo.ProjectMember AS pm		ON t.TitleId = pm.TitleId	LEFT JOIN dbo.Project AS p		ON pm.ProjectId = p.ProjectIdWHERE	pm.TitleId IS NULL
+SELECT 	* FROM dbo.Title AS t	LEFT JOIN dbo.ProjectMember AS pm		ON t.TitleId = pm.TitleIdWHERE	pm.TitleId IS NULL
