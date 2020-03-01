@@ -19,17 +19,41 @@
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
-        <FileNode Name="CreateDB.sql">
+        <FileNode Name="SQLQuery1.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>CreateDB.sql</FullPath>
+          <FullPath>SQLQuery1.sql</FullPath>
         </FileNode>
-        <FileNode Name="UploadTestData.sql">
+        <FileNode Name="Task1 CreateDB.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>UploadTestData.sql</FullPath>
+          <FullPath>Task1 CreateDB.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Task1 UploadTestData.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Task1 UploadTestData.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Task2.1 CountOfEmployee.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Task2.1 CountOfEmployee.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Task2.2 NotUsedPositions.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Task2.2 NotUsedPositions.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Task2.3 NotUsedPositions.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Task2.3 NotUsedPositions.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>
