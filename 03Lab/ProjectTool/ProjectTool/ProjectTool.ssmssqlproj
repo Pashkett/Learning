@@ -3,7 +3,7 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="(LocalDB)\ProjectTool:DESKTOP-ADVUNKN\pashk">
+        <ConnectionNode Name="(LocalDB)\ProjectTool:ZEPPELIN_HV\TafrovPavlo">
           <Created>2020-02-27T17:58:05.6359051+02:00</Created>
           <Type>SQL</Type>
           <Server>(LocalDB)\ProjectTool</Server>
@@ -54,6 +54,48 @@
           <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>Task2.4 AverageTasksByEmployee.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Task2.5 ProjectDuration.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Task2.5 ProjectDuration.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Task2.6 EmployeeWithMinOpenTasks.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Task2.6 EmployeeWithMinOpenTasks.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Task2.7 EmployeeWithMAXOpenTasks.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Task2.7 EmployeeWithMAXOpenTasks.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Task2.8 UpdateEstCloseDateForOpenTasks.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Task2.8 UpdateEstCloseDateForOpenTasks.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Task2.9 CountNotStartedTasksByProject.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Task2.9 CountNotStartedTasksByProject.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Task210 TODO UpdateProjectCloseDate.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Task210 TODO UpdateProjectCloseDate.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Task211 TODO EmployeesWithoutOpenTasks.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Task211 TODO EmployeesWithoutOpenTasks.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

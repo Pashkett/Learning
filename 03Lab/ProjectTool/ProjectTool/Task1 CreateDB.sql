@@ -57,6 +57,7 @@ CREATE TABLE dbo.ProjectTask
 	ProjectId INT,
 	StatusId INT,
 	StatusModifiedById INT,
+	IsStarted BIT,
 	StatusModifiedOn DATETIME,
 	EstimatedCloseDate DATETIME,
 	FOREIGN KEY (ProjectMemberId) REFERENCES ProjectMember (ProjectMemberId),

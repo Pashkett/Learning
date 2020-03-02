@@ -11,5 +11,5 @@ FROM dbo.ProjectMember AS pm
 WHERE 
 	p.IsCompleted = 0
 
-group by 
+GROUP BY
 	t.TitleName
