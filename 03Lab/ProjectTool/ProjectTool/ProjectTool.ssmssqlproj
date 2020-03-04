@@ -3,7 +3,7 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="(LocalDB)\ProjectTool:ZEPPELIN_HV\TafrovPavlo">
+        <ConnectionNode Name="(LocalDB)\ProjectTool:DESKTOP-ADVUNKN\pashk">
           <Created>2020-02-27T17:58:05.6359051+02:00</Created>
           <Type>SQL</Type>
           <Server>(LocalDB)\ProjectTool</Server>
@@ -97,11 +97,11 @@
           <AssociatedConnUserName />
           <FullPath>Task211 EmployeesWithoutOpenTasks.sql</FullPath>
         </FileNode>
-        <FileNode Name="Task212 EmployeesWithoutOpenTasks.sql">
+        <FileNode Name="Task212 TransferTaskByName.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(LocalDB)\ProjectTool:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>(LocalDB)\ProjectTool</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>Task212 EmployeesWithoutOpenTasks.sql</FullPath>
+          <FullPath>Task212 TransferTaskByName.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>
