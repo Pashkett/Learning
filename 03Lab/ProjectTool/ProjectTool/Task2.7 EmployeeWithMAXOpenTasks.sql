@@ -1,3 +1,6 @@
+USE [ProjectToolDB]
+GO
+
 SELECT
 	e.EmployeeId
 	, e.FirstName + ' ' + e.LastName AS FullName
@@ -22,3 +25,5 @@ WHERE
 	OpenTasksCount > 0
 
 ORDER BY OpenTasksCount DESC
+
+GO

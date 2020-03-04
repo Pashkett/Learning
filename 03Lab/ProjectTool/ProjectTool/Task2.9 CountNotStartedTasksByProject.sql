@@ -1,3 +1,6 @@
+USE [ProjectToolDB]
+GO
+
 SELECT 
 	p.ProjectName
 	, COUNT(pt.ProjectTaskId) AS CountOfNotStartedTasks
@@ -11,3 +14,5 @@ WHERE
 
 GROUP BY 
 	p.ProjectName
+
+GO
