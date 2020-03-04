@@ -1,3 +1,6 @@
+USE [ProjectToolDB]
+GO
+
 SELECT
 	e.EmployeeId
 	, e.FirstName + ' ' + e.LastName AS FullName
@@ -18,4 +21,6 @@ FROM dbo.Employee AS e
 		) AS summary
 			ON e.EmployeeId = summary.EmployeeId
 
-Order by OpenTasksCount
+ORDER BY OpenTasksCount
+
+GO

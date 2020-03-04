@@ -1,3 +1,6 @@
+USE [ProjectToolDB]
+GO
+
 SELECT 
 	t.TitleName as Title
 	, COUNT(pm.ProjectMemberId) as EmployeeCount
@@ -13,3 +16,5 @@ WHERE
 
 GROUP BY
 	t.TitleName
+
+GO
