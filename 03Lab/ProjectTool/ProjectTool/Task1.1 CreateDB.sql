@@ -1,5 +1,4 @@
 --Create Database
-
 USE master;
 GO
 IF DB_ID (N'ProjectToolDB') IS NOT NULL
