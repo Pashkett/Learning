@@ -1,4 +1,4 @@
-USE ProjectToolDB
+USE [ProjectToolDB]
 GO
 
 WITH PT(ProjectId, IsCompleted, ClosingDate, OpentTasksCount) AS
