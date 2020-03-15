@@ -28,3 +28,5 @@ GROUP BY
 	p.ProjectId, p.ProjectName
 
 ORDER BY p.ProjectId
+
+GO

@@ -12,3 +12,5 @@ SELECT DISTINCT
 FROM dbo.Project AS p
 	INNER JOIN dbo.ProjectTask AS pt
 		ON p.ProjectId = pt.ProjectId
+
+GO

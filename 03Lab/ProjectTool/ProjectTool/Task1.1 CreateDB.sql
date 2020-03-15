@@ -1,5 +1,4 @@
 --Create Database
-
 USE master;
 GO
 IF DB_ID (N'ProjectToolDB') IS NOT NULL
@@ -57,11 +56,12 @@ CREATE TABLE dbo.ProjectTask
 	ProjectId INT,
 	StatusId INT,
 	StatusModifiedById INT,
+	IsStarted BIT,
 	StatusModifiedOn DATETIME,
 	EstimatedCloseDate DATETIME,
 	FOREIGN KEY (ProjectMemberId) REFERENCES ProjectMember (ProjectMemberId),
 	FOREIGN KEY (ProjectId) REFERENCES Project (ProjectId),
 	FOREIGN KEY (StatusId) REFERENCES TaskStatus (StatusId),
-	FOREIGN KEY (StatusModifiedById) REFERENCES Employee (EmployeeId)
+	FOREIGN KEY (StatusModifiedById) REFERENCES ProjectMember (ProjectMemberId)
 )
 ;
