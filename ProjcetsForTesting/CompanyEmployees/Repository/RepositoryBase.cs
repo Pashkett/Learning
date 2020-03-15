@@ -1,9 +1,10 @@
-﻿using Contracts;
-using Entities;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
+
+using Contracts;
+using Entities;
 
 namespace Repository
 {
