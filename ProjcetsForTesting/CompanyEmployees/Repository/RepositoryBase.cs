@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Contracts;
 using Entities;
 
-
 namespace Repository
 {
     public abstract class RepositoryBase<T> : IRepositoryBase<T>
