@@ -22,11 +22,11 @@ INSERT INTO [dbo].[Project]
            ,[ClosingDate]
            ,[IsCompleted])
      VALUES
-           ('Lanch E-Commerce', '2018-01-01 00:00:000', '2019-01-01 00:00:000', 1),		--1
-		   ('Lanch Business Portal', '2019-01-01 00:00:000', '2019-07-01 00:00:000', 1),--2
-		   ('Lanch CRM', '2020-01-01 00:00:000', NULL, 0),								--3
-		   ('Lanch Call Center', '2020-02-01 00:00:000', NULL, 0),						--4
-		   ('Lanch ERP', '2019-01-01 00:00:000', NULL, 0)								--5
+           ('Launch E-Commerce', '2018-01-01 00:00:000', '2019-01-01 00:00:000', 1),		--1
+		   ('Launch Business Portal', '2019-01-01 00:00:000', '2019-07-01 00:00:000', 1),--2
+		   ('Launch CRM', '2020-01-01 00:00:000', NULL, 0),								--3
+		   ('Launch Call Center', '2020-02-01 00:00:000', NULL, 0),						--4
+		   ('Launch ERP', '2019-01-01 00:00:000', NULL, 0)								--5
 
 GO
 
