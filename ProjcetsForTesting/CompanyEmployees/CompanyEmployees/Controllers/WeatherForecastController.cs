@@ -12,27 +12,40 @@ namespace CompanyEmployees.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private ILoggerManager logger;
-        public WeatherForecastController(ILoggerManager logger)
+        private IRepositoryManager repository;
+
+        public WeatherForecastController(IRepositoryManager repositoryManager)
         {
-            this.logger = logger;
+            repository = repositoryManager;
         }
 
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-        
+        [Route("[controller]")]
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ActionResult<IEnumerable<string>> Get()
         {
-            logger.LogInfo("Here is info message from our values controller.");
-            logger.LogDebug("Here is info message from our values controller.");
-            logger.LogWarn("Here is info message from our values controller.");
-            logger.LogError("Here is info message from our values controller.");
-
-            return new string[] { "value1", "value2" }; 
+            return new string[] { "value1", "value2" };
         }
+        //private ILoggerManager logger;
+        //public WeatherForecastController(ILoggerManager logger)
+        //{
+        //    this.logger = logger;
+        //}
+
+        //private static readonly string[] Summaries = new[]
+        //{
+        //    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        //};
+
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    logger.LogInfo("Here is info message from our values controller.");
+        //    logger.LogDebug("Here is info message from our values controller.");
+        //    logger.LogWarn("Here is info message from our values controller.");
+        //    logger.LogError("Here is info message from our values controller.");
+
+        //    return new string[] { "value1", "value2" }; 
+        //}
 
         //private readonly ILogger<WeatherForecastController> _logger;
 

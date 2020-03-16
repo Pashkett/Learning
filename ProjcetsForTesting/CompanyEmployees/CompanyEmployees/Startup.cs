@@ -1,4 +1,3 @@
-using CompanyEmployees.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
 using NLog;
 using System.IO;
+using CompanyEmployees.Extensions;
 
 namespace CompanyEmployees
 {
@@ -28,6 +28,7 @@ namespace CompanyEmployees
             services.ConfigureIISIntegration();
             services.ConfigureLogService();
             services.ConfigureSqlContext(Configuration);
+            services.ConfigureRepositoryManager();
 
             services.AddControllers();
             

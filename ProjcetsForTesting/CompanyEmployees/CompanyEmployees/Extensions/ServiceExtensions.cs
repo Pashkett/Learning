@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Contracts;
 using LoggerService;
 using Microsoft.Extensions.Configuration;
-using Entities;
 using Microsoft.EntityFrameworkCore;
+using Entities;
+using Contracts;
+using Repository;
+
 
 namespace CompanyEmployees.Extensions
 {
@@ -41,5 +43,8 @@ namespace CompanyEmployees.Extensions
                 services.AddDbContext<RepositoryContext>(opts =>
                     opts.UseSqlServer(configuration.GetConnectionString("sqlConnection"), b =>
                         b.MigrationsAssembly("CompanyEmployees")));
+
+        public static void ConfigureRepositoryManager(this IServiceCollection services) =>
+            services.AddScoped<IRepositoryManager, RepositoryManager>();
     }
 }
