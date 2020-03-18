@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.HttpOverrides;
 using NLog;
 using System.IO;
 using CompanyEmployees.Extensions;
+using AutoMapper;
+using Contracts;
 
 namespace CompanyEmployees
 {
@@ -29,21 +31,28 @@ namespace CompanyEmployees
             services.ConfigureLogService();
             services.ConfigureSqlContext(Configuration);
             services.ConfigureRepositoryManager();
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
             
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app,
+                              IWebHostEnvironment env,
+                              ILoggerManager logger)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            else
+            {
+                app.UseHsts();
+            }
+            
+            app.ConfigureExeptionHandler(logger);
             app.UseHttpsRedirection();
-
             app.UseStaticFiles();
 
             app.UseCors("CorsPolicy");
