@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using DAL.Models;
+﻿using DAL.Models;
 using DAL.Configurations;
 using DAL.SeedingDataExtension;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL
 {
