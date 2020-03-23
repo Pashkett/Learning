@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DAL.Repositories
 {
-    public class Repository
+    public class ProductCatalogRepository
     {
     }
 }
