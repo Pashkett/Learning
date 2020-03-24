@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
-namespace BLL.Interfaces
+namespace DAL.Interfaces
 {
     public interface IRepository<TEntity> where TEntity : class
     {

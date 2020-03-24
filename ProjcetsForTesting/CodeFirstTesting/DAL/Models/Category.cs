@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace DAL.Models
 {
@@ -7,6 +6,6 @@ namespace DAL.Models
     {
         public int CategoryId { get; set; }
         public string Name { get; set; }
-        public ICollection<ProductCategory> ProductCategories { get; set; }
+        public virtual ICollection<ProductCategory> ProductCategories { get; set; }
     }
 }

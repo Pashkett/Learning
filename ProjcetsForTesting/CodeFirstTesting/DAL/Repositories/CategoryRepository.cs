@@ -1,9 +1,8 @@
-﻿using DAL.Models;
-using BLL.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using DAL.Interfaces;
+using DAL.Models;
 
-
-namespace BLL.Repositories
+namespace DAL.Repositories
 {
     public class CategoryRepository : Repository<Category>, ICategoryRepository
     {

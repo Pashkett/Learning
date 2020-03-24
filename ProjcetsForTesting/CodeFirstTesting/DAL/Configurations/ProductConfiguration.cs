@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using DAL.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using DAL.Models;
+using DAL.SeedingDataExtension;
 
 namespace DAL.Configurations
 {
@@ -21,6 +22,8 @@ namespace DAL.Configurations
             builder.HasOne(p => p.Supplier)
                 .WithMany(s => s.Products)
                 .HasForeignKey(p => p.SupplierId);
+
+            builder.HasData(ProductsContextExtensionSeed.SeedData<Product>("Products.json"));
         }
     }
 }

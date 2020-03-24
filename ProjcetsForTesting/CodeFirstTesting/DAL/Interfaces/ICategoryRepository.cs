@@ -1,6 +1,6 @@
 ﻿using DAL.Models;
 
-namespace BLL.Interfaces
+namespace DAL.Interfaces
 {
     public interface ICategoryRepository : IRepository<Category>
     {

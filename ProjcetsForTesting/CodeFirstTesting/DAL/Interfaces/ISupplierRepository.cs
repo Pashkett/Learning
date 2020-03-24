@@ -1,7 +1,7 @@
-﻿using DAL.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using DAL.Models;
 
-namespace BLL.Interfaces
+namespace DAL.Interfaces
 {
     public interface ISupplierRepository : IRepository<Supplier>
     {

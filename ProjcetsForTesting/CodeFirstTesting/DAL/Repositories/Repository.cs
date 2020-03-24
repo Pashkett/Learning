@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using BLL.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using DAL.Interfaces;
 
 
-namespace BLL.Repositories
+namespace DAL.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> 
+    public abstract class Repository<TEntity> : IRepository<TEntity> 
         where TEntity : class
     {
         protected readonly DbContext context;

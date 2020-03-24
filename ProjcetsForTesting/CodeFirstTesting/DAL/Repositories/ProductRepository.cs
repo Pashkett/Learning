@@ -1,12 +1,9 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections.Generic;
 using DAL.Models;
-using BLL.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using DAL;
-using System.Linq;
+using DAL.Interfaces;
 
-namespace BLL.Repositories
+namespace DAL.Repositories
 {
     public class ProductRepository : Repository<Product>, IProductRepository
     {
@@ -15,7 +12,6 @@ namespace BLL.Repositories
         public IEnumerable<Product> GetProductsByCategory(string productCategory)
         {
             return productsContext.Products
-                            .AsNoTracking()
                             .Where(products => products.ProductCategories
                                 .Any(prodCategory => prodCategory.Category.Name == productCategory))
                             .OrderBy(product => product.Name)
@@ -25,7 +21,6 @@ namespace BLL.Repositories
         public IEnumerable<Product> GetProductsBySupplier(string supplierName)
         {
             return productsContext.Products
-                            .AsNoTracking()
                             .Where(product => product.Supplier.SupplierName == supplierName)
                             .OrderBy(product => product.Name)
                             .ToList();

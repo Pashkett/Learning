@@ -1,11 +1,9 @@
-﻿using DAL.Models;
-using BLL.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using System.Linq;
 using System.Collections.Generic;
-using DAL;
-using System.Linq;
+using DAL.Models;
+using DAL.Interfaces;
 
-namespace BLL.Repositories
+namespace DAL.Repositories
 {
     public class SupplierRepository : Repository<Supplier>, ISupplierRepository
     {
@@ -16,7 +14,6 @@ namespace BLL.Repositories
         public IEnumerable<Supplier> GetSuppliersByCategory(string productCategory)
         {
             return productsContext.Suppliers
-                            .AsNoTracking()
                             .Where(supplier => supplier.Products
                                 .Any(product => product.ProductCategories
                                 .Any(prodCategory => prodCategory.Category.Name == productCategory)))

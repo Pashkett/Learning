@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
-
+using DAL.Repositories;
 
 namespace CodeFirstTesting
 {
@@ -10,34 +7,40 @@ namespace CodeFirstTesting
     {
         static void Main(string[] args)
         {
-            //using (var _db = new ProductsContext())
-            //{
-            //    _db.SeedData(_db.Suppliers, "Suppliers.json");
-            //    _db.SeedData(_db.Categories, "Categories.json");
-            //    _db.SeedData(_db.Products, "Products.json");
-            //    _db.SeedData(_db.ProductCategories, "ProductCategories.json");
+            using (var uow = new UnitOfWork())
+            {
+                Console.WriteLine("GetProductsByCategory\n");
+                var productsByCategory = uow.Products.GetProductsByCategory("commodo");
+                foreach (var product in productsByCategory)
+                {
+                    Console.WriteLine(product.Name);
+                }
+                Console.WriteLine(new string('=', 12));
 
-            //    Console.WriteLine($"\n{nameof(GetProductsByCategory)}\n");
-            //    var products = GetProductsByCategory(_db, "cream");
-            //    foreach (var product in products)
-            //    {
-            //        Console.WriteLine(product.Name);
-            //    }
+                Console.WriteLine("GetSuppliersByCategory\n");
+                var suppliersByCategory = uow.Suppliers.GetSuppliersByCategory("commodo");
+                foreach (var supplier in suppliersByCategory)
+                {
+                    Console.WriteLine(supplier.SupplierName);
+                }
+                Console.WriteLine(new string('=', 12));
 
-            //    Console.WriteLine($"\n{nameof(GetSuppliersByCategory)}\n");
-            //    var suppliers = GetSuppliersByCategory(_db, "cream");
-            //    foreach (var supplier in suppliers)
-            //    {
-            //        Console.WriteLine(supplier.SupplierName);
-            //    }
+                Console.WriteLine("GetProductsBySupplier\n");
+                var productsBySupplier = uow.Products.GetProductsBySupplier("ZILLANET");
+                foreach (var product in productsBySupplier)
+                {
+                    Console.WriteLine(product.Name);
+                }
+                Console.WriteLine(new string('=', 12));
 
-            //    Console.WriteLine($"\n{nameof(GetProductsBySupplier)}\n");
-            //    var productsBySuppliers = GetProductsBySupplier(_db, "TWIIST");
-            //    foreach (var product in productsBySuppliers)
-            //    {
-            //        Console.WriteLine(product.Name);
-            //    }
-            //}
+                Console.WriteLine("GetSuppliersByCountry\n");
+                var suppliersByCountry = uow.Suppliers.Find(supplier => supplier.Country == "Angola");
+                foreach (var supplier in suppliersByCountry)
+                {
+                    Console.WriteLine(supplier.SupplierName);
+                }
+                Console.WriteLine(new string('=', 12));
+            }
         }
     }
 }

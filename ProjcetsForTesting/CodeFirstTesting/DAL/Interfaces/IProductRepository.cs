@@ -1,7 +1,7 @@
 ﻿using DAL.Models;
 using System.Collections.Generic;
 
-namespace BLL.Interfaces
+namespace DAL.Interfaces
 {
     public interface IProductRepository : IRepository<Product>
     {

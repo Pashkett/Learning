@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using DAL.Models;
+using DAL.SeedingDataExtension;
 
 namespace DAL.Configurations
 {
@@ -21,6 +22,8 @@ namespace DAL.Configurations
             builder.Property(s => s.City)
                 .HasMaxLength(100)
                 .IsRequired();
+
+            builder.HasData(ProductsContextExtensionSeed.SeedData<Supplier>("Suppliers.json"));
         }
     }
 }
