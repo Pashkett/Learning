@@ -5,7 +5,7 @@ using DAL.SeedingDataExtension;
 
 namespace DAL.Configurations
 {
-    public class SupplierConfiguartion : IEntityTypeConfiguration<Supplier>
+    public class SupplierConfiguration : IEntityTypeConfiguration<Supplier>
     {
         public void Configure(EntityTypeBuilder<Supplier> builder)
         {
