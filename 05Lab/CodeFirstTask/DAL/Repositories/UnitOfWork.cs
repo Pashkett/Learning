@@ -6,19 +6,27 @@ namespace DAL.Repositories
     {
         protected readonly ProductsContext context;
 
-        public UnitOfWork()
-        {
+        private IProductRepository productRepository;
+        private ISupplierRepository supplierRepository;
+        private ICategoryRepository categoryRepository;
+
+        public UnitOfWork() => 
             this.context = new ProductsContext();
-            Products = new ProductRepository(context);
-            Suppliers = new SupplierRepository(context);
-            Categories = new CategoryRepository(context);
-        }
 
-        public IProductRepository Products { get; private set; }
+        public IProductRepository Products => 
+            productRepository == null 
+                               ? productRepository = new ProductRepository(context) 
+                               : productRepository;
 
-        public ISupplierRepository Suppliers { get; private set; }
+        public ISupplierRepository Suppliers =>
+            supplierRepository == null
+                                ? supplierRepository = new SupplierRepository(context)
+                                : supplierRepository;
 
-        public ICategoryRepository Categories { get; private set; }
+        public ICategoryRepository Categories =>
+            categoryRepository == null
+                                ? categoryRepository = new CategoryRepository(context)
+                                : categoryRepository;
 
         public int Complete() => context.SaveChanges();
 
