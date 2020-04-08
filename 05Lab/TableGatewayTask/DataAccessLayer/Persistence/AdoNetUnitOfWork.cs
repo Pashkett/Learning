@@ -4,7 +4,7 @@ using DataAccessLayer.Persistence.Interfaces;
 
 namespace DataAccessLayer.Persistence
 {
-    public class AdoNetUnitOfWork : IUnitOfWork
+    public class AdoNetUnitOfWork : IUnitOfWork, IDisposable
     {
         const string ConnectionStringName = "DefaultConnection";
 
