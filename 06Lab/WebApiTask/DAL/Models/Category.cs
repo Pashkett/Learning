@@ -1,0 +1,11 @@
+﻿using System.Collections.Generic;
+
+namespace DAL.Models
+{
+    public class Category
+    {
+        public int CategoryId { get; set; }
+        public string Name { get; set; }
+        public virtual ICollection<ProductCategory> ProductCategories { get; set; }
+    }
+}
